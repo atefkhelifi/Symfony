@@ -1,0 +1,35 @@
+{% extends 'index3.html.twig' %}
+
+{% block events %}
+
+    // buttons
+
+    // Insert the whole bar
+    "{{ socialButtons() }}"
+
+    // Insert only one button
+    "{{ twitterButton() }}"
+    // or
+    "{{ socialButtons( {'googleplus':false, 'facebook':false, 'linkedin':false} ) }}"
+
+    // insert the google+ button with custom parameters
+    "{{ googlePlusButton( {'locale':'fr', 'url':'http://google.fr' }) }}"
+
+    // insert the bar with specific values for Facebook
+    "{{ socialButtons( { 'facebook': {'locale':'fr_FR', 'send':true}} ) }}"
+
+    // links
+
+    // insert the whole links defined in config
+    "{{ sociallinks() }}"
+
+    // insert one link, no option
+    "{{ socialLink('facebook') }}"
+
+    // insert one link, specifying the url
+    "{{ socialLink('linkedin',{'url': 'http://www.nomaya.net'}) }}"
+
+    // insert custom bar with 2 links, not showing googleplus
+    "{{ socialLinks({'linkedin',{'url': 'http://www.nomaya.net'}, 'facebook':{'url': 'http://www.facebook.com'}, 'googleplus': false}) }}"
+
+{% endblock %}

@@ -1,0 +1,49 @@
+events_events:
+    resource: "@eventsBundle/Resources/config/routing/events.yml"
+    prefix:   /events
+
+events_homepage:
+    path:     /a
+    defaults: {_controller: eventsBundle:Events:index}
+events:
+    path:     /events
+    defaults: {_controller: eventsBundle:Events:index}
+events_index:
+  path:     /
+  defaults: { _controller: "eventsBundle:Events:index" }
+  methods:  GET
+
+events_show:
+  path:     /{id}/show
+  defaults: { _controller: "eventsBundle:Events:show" }
+  methods:  GET
+
+events_new:
+  path:     /new
+  defaults: { _controller: "eventsBundle:Events:new" }
+  methods:  [GET, POST]
+
+events_edit:
+  path:     /{idEvent}/edit
+  defaults: { _controller: "eventsBundle:Events:edit" }
+  methods:  [GET, POST]
+
+events_delete:
+  path:     /{idEvent}/delete
+  defaults: { _controller: "eventsBundle:Events:delete" }
+  methods:  DELETE
+
+inscription:
+  path:     /inscription/{id}
+  defaults: { _controller: "eventsBundle:Events:inscription" }
+  methods:  [GET, POST]
+
+desinscription:
+  path:     /desinscription/{id}
+  defaults: { _controller: "eventsBundle:Events:desinscription" }
+  methods:  [GET, POST]
+
+even:
+  path:     /hh
+  defaults: { _controller: "eventsBundle:Events:myEvents" }
+  methods:  GET

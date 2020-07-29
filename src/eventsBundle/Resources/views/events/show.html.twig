@@ -1,0 +1,52 @@
+{% extends 'index3.html.twig' %}
+
+{% block events %}
+    <center>
+    <h1>{{ event.nomEvent }} </h1>
+    </center>
+        <table class="table table-bordered table-striped" cellspacing="0" id="tableac" border="2">
+
+        <tbody>
+
+
+            <tr>
+                <th>Localisation</th>
+                <td>{{ event.localisationEvent }}</td>
+            </tr>
+            <tr>
+                <th>Prix</th>
+                <td>{{ event.prixEvent }}</td>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <td>{% if event.dateEvent %}{{ event.dateEvent|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Place disponible</th>
+                <td>{{ event.placeDispo }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+
+            <a class="btn btn-info" href="{{ path('events_index') }}">Back to the list</a>
+
+        {##}
+        {% if app.user is not null %}
+             {% if event.id in inss %}
+                <td>
+                    <a class="btn btn-info" href="{{ path('desinscription', { 'id':event.id }) }}">Se désinscrire</a>
+                </td>
+            {% else %}
+                <td>
+                    <a class="btn btn-info" href="{{ path('inscription', { 'id':event.id }) }}">S'inscrire</a>
+                </td>
+            {% endif %}
+         {% endif %}
+
+        {##}
+
+
+
+
+{% endblock %}
